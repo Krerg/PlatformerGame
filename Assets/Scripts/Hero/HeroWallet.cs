@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PixelCrew
 {
     public class HeroWallet : MonoBehaviour
     {
         [SerializeField] private int _coins;
+        [SerializeField] private CoinAmountChangeEvent _onChange;
 
         public int Coins
         {
@@ -16,26 +18,28 @@ namespace PixelCrew
 
         public void OnPickSilverCoin()
         {
-            AddCoins(1);
+            ChangeCoinAmount(1);
         }
 
         public void OnPickGoldCoin()
         {
-            AddCoins(10);
+            ChangeCoinAmount(10);
         }
 
-        private void AddCoins(int coins)
+        public void ChangeCoinAmount(int coins)
         {
             _coins += coins;
-            Debug.Log("Coins: " + _coins);
+            _onChange?.Invoke(_coins);
         }
 
         public void DisposeCoins(int coinsToDispose)
         {
-            _coins -= coinsToDispose;
+            ChangeCoinAmount(-coinsToDispose);
         }
-        
-        
-        
+    }
+
+    [Serializable]
+    public class CoinAmountChangeEvent : UnityEvent<int>
+    {
     }
 }

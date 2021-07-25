@@ -3,6 +3,7 @@ using System.Collections;
 using PixelCrew;
 using PixelCrew.Components;
 using PixelCrew.Components.Extensions;
+using PixelCrew.Model;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
@@ -50,12 +51,20 @@ public class Hero : MonoBehaviour
 
     private bool _isDamageTaken = false;
     [SerializeField] private int _damage;
-
-    private bool _isArmed;
+    
+    private GameSession _session;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        _session = FindObjectOfType<GameSession>();
+        FindObjectOfType<HealthComponent>().SetHealth(_session.Data.Hp);
+        _wallet.ChangeCoinAmount(_session.Data.Coins);
+        UpdateHeroArmState();
     }
 
     private void Update()
@@ -235,7 +244,7 @@ public class Hero : MonoBehaviour
      */
     public void Attack()
     {
-        if (!_isArmed) return;
+        if (!_session.Data.isArmed) return;
         _animator.SetTrigger(AttackTrigger);
     }
 
@@ -257,7 +266,30 @@ public class Hero : MonoBehaviour
 
     public void ArmHero()
     {
-        _isArmed = true;
+        _session.Data.isArmed = true;
         _animator.runtimeAnimatorController = _armed;
     }
+
+    private void UpdateHeroArmState()
+    {
+        _animator.runtimeAnimatorController = _session.Data.isArmed ? _armed : _disarmed;
+    }
+
+
+    /**
+     * TODO Move to separete class
+     */
+    public void OnHealthChanged(int health)
+    {
+        _session.Data.Hp = health;
+    }
+    
+    /**
+     * TODO Move to separete class
+     */
+    public void OnCoinsChanged(int coins)
+    {
+        _session.Data.Coins = coins;
+    }
+    
 }
