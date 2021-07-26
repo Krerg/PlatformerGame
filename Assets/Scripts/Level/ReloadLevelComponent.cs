@@ -19,7 +19,7 @@ namespace PixelCrew.Components
         private void DestroyCurrentSession()
         {
             var session = FindObjectOfType<GameSession>();
-            DestroyImmediate(session);
+            Destroy(session.gameObject);
         }
     }
 }
