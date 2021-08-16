@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PixelCrew.Creatures;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class HeroInputReader : MonoBehaviour

@@ -496,6 +496,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e36864f3c40b354bb699ad1311c6487, type: 3}
+--- !u!114 &447530801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3712569714173162339, guid: 85d121d7b0ece0045b11634abe57611d,
+    type: 3}
+  m_PrefabInstance: {fileID: 928683876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bbc005dfb06e7489d6b01f9e791113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &482161462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3934,6 +3946,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3712569714173162339, guid: 85d121d7b0ece0045b11634abe57611d,
+        type: 3}
+      propertyPath: _layer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 3712569715331749225, guid: 85d121d7b0ece0045b11634abe57611d,
         type: 3}
       propertyPath: m_Name
@@ -4008,6 +4025,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _onHealthEmpty.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnOutOfLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712569715331749237, guid: 85d121d7b0ece0045b11634abe57611d,
+        type: 3}
+      propertyPath: _groundCheck
+      value: 
+      objectReference: {fileID: 447530801}
+    - target: {fileID: 3712569715331749237, guid: 85d121d7b0ece0045b11634abe57611d,
+        type: 3}
+      propertyPath: _damageVelocity
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85d121d7b0ece0045b11634abe57611d, type: 3}
