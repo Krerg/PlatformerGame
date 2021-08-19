@@ -5,28 +5,26 @@ using UnityEngine;
 
 namespace PixelCrew.Creatures
 {
-    public class Creature: MonoBehaviour
+    public class Creature : MonoBehaviour
     {
-        [Header("Params")]
-        [SerializeField] private float _speed;
+        [Header("Params")] [SerializeField] private float _speed;
         [SerializeField] protected float _jumpSpeed;
         [SerializeField] private float _damageVelocity;
         [SerializeField] private int _damage;
-        
-        [Header("Checkers")]
-        [SerializeField] protected LayerMask _groundLayer;
+
+        [Header("Checkers")] [SerializeField] protected LayerMask _groundLayer;
         [SerializeField] protected LayerCheck _groundCheck;
         [SerializeField] private CheckCircleOverlap _attackRange;
-        
+
         [SerializeField] protected SpawnListComponent _particles;
-        
+
         [SerializeField] protected Rigidbody2D _rigidbody;
         protected Vector2 _direction;
         protected Animator _animator;
         protected bool _isGrounded;
 
         private bool _isJumping;
-        
+
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
         private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
@@ -39,7 +37,7 @@ namespace PixelCrew.Creatures
             _animator = GetComponent<Animator>();
             _rigidbody = GetComponent<Rigidbody2D>();
         }
-        
+
         public void SetDirection(Vector2 direction)
         {
             _direction = direction;
@@ -49,7 +47,7 @@ namespace PixelCrew.Creatures
         {
             _isGrounded = _groundCheck.IsTouchingLayer;
         }
-        
+
         protected virtual void FixedUpdate()
         {
             var xVelocity = _direction.x * _speed;
@@ -61,7 +59,7 @@ namespace PixelCrew.Creatures
             _animator.SetBool(IsRunningKey, _direction.x != 0);
             UpdateFlipDirection();
         }
-        
+
         protected virtual float CalculateYVelocity()
         {
             var yVelocity = _rigidbody.velocity.y;
@@ -78,7 +76,7 @@ namespace PixelCrew.Creatures
                 var isFalling = _rigidbody.velocity.y <= 0.001f;
                 yVelocity = isFalling ? CalculateJumpVelocity(yVelocity) : yVelocity;
             }
-            else if (_rigidbody.velocity.y > 0)
+            else if (_rigidbody.velocity.y > 0 && _isJumping)
             {
                 yVelocity *= 0.05f;
             }
@@ -96,7 +94,7 @@ namespace PixelCrew.Creatures
 
             return yVelocity;
         }
-        
+
         private void UpdateFlipDirection()
         {
             if (_direction.x > 0)
@@ -108,34 +106,25 @@ namespace PixelCrew.Creatures
                 transform.localScale = new Vector3(-1, 1, 1);
             }
         }
-        
+
         public virtual void TakeDamage()
         {
             _isJumping = false;
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageVelocity);
         }
-        
+
         public virtual void Attack()
         {
             _animator.SetTrigger(AttackTrigger);
         }
-        
+
         /**
      * Calculates objects to damage of attack animation played.
      */
         public void OnAttackEvent()
         {
-            var gos = _attackRange.GetObjectInRange();
-            foreach (var go in gos)
-            {
-                var hp = go.GetComponent<HealthComponent>();
-                if (hp != null && go.CompareTag("Enemy"))
-                {
-                    hp.ApplyHealthChange(_damage);
-                }
-            }
+            _attackRange.Check();
         }
-        
     }
 }

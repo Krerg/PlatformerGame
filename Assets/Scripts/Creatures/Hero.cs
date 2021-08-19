@@ -12,9 +12,7 @@ namespace PixelCrew.Creatures
 {
     public class Hero : Creature
     {
-        [SerializeField] private float _interactRadius;
-        [SerializeField] private Collider2D[] _interactionResult = new Collider2D[1];
-        [SerializeField] private LayerMask _interactionLayer;
+        [SerializeField] private CheckCircleOverlap _interactionCheck;
 
         [SerializeField] private float _slamDownVelocity;
 
@@ -27,12 +25,10 @@ namespace PixelCrew.Creatures
 
         private float _defaultGravityScale;
 
-        
-
         //private bool _isGrounded;
         private bool _allowDoubleJump;
 
-        private bool _isDamageTaken = false;
+        
         //[SerializeField] private int _damage;
 
         private GameSession _session;
@@ -46,7 +42,7 @@ namespace PixelCrew.Creatures
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
-            FindObjectOfType<HealthComponent>().SetHealth(_session.Data.Hp);
+            GetComponent<HealthComponent>().SetHealth(_session.Data.Hp);
             _wallet.ChangeCoinAmount(_session.Data.Coins);
             UpdateHeroArmState();
         }
@@ -79,6 +75,7 @@ namespace PixelCrew.Creatures
             {
                 _allowDoubleJump = true;
             }
+
             return base.CalculateYVelocity();
         }
 
@@ -127,12 +124,6 @@ namespace PixelCrew.Creatures
             _hitParticles.Play();
         }
 
-        private IEnumerator ResetDamageTaken()
-        {
-            yield return new WaitForSeconds(0.5f);
-            _isDamageTaken = false;
-        }
-
         public void saySomething()
         {
             Debug.Log("Shooot!");
@@ -140,16 +131,7 @@ namespace PixelCrew.Creatures
 
         public void Interact()
         {
-            var size = Physics2D.OverlapCircleNonAlloc(transform.position, _interactRadius, _interactionResult,
-                _interactionLayer);
-            for (int i = 0; i < size; i++)
-            {
-                var interactable = _interactionResult[i].GetComponent<InteractableComponent>();
-                if (interactable != null)
-                {
-                    interactable.Interact();
-                }
-            }
+            _interactionCheck.Check();
         }
 
         public override void Attack()
@@ -157,9 +139,7 @@ namespace PixelCrew.Creatures
             if (!_session.Data.isArmed) return;
             base.Attack();
         }
-        
 
-       
 
         public void ArmHero()
         {

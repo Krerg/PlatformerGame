@@ -129,7 +129,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3712569715331749233, guid: 85d121d7b0ece0045b11634abe57611d,
+          type: 3}
         m_MethodName: OnPickSilverCoin
         m_Mode: 1
         m_Arguments:

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5238850183700790872}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: DestroyedBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
