@@ -111,6 +111,7 @@ namespace PixelCrew.Creatures
 
         public void OnDie()
         {
+            StopCreature();
             _isDead = true;
             _animator.SetBool(IsDeadKey, true);
             

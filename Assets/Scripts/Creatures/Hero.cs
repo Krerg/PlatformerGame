@@ -18,18 +18,15 @@ namespace PixelCrew.Creatures
 
         [SerializeField] private ParticleSystem _hitParticles;
         [SerializeField] private HeroWallet _wallet;
-
-        //private Animator _animator;
+        
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
 
         private float _defaultGravityScale;
 
-        //private bool _isGrounded;
         private bool _allowDoubleJump;
 
-        
-        //[SerializeField] private int _damage;
+        private static readonly int ThrowTrigger = Animator.StringToHash("throw");
 
         private GameSession _session;
 
@@ -167,6 +164,19 @@ namespace PixelCrew.Creatures
         public void OnCoinsChanged(int coins)
         {
             _session.Data.Coins = coins;
+        }
+
+        public void Throw()
+        {
+            if (_session.Data.isArmed)
+            {
+                _animator.SetTrigger(ThrowTrigger);
+            }
+        }
+
+        public void OnDoThrow()
+        {
+            _particles.Spawn("Throw");
         }
     }
 }

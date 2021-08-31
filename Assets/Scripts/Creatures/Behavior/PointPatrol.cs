@@ -36,7 +36,6 @@ namespace PixelCrew.Creatures.Behavior
 
         private bool IsOnPoint()
         {
-            Debug.Log((_points[_destinationPointIndex].position - transform.position).magnitude);
             return (_points[_destinationPointIndex].position - _creature.transform.position).magnitude < _treshold;
         }
     }
