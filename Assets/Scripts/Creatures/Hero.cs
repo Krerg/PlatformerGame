@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Components;
 using PixelCrew;
 using PixelCrew.Components;
 using PixelCrew.Components.Extensions;
@@ -22,6 +23,8 @@ namespace PixelCrew.Creatures
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
 
+        [SerializeField] private Cooldown _throwCooldown;
+        
         private float _defaultGravityScale;
 
         private bool _allowDoubleJump;
@@ -168,9 +171,11 @@ namespace PixelCrew.Creatures
 
         public void Throw()
         {
+            if (!_throwCooldown.IsReady) return;
             if (_session.Data.isArmed)
             {
                 _animator.SetTrigger(ThrowTrigger);
+                _throwCooldown.Reset();
             }
         }
 

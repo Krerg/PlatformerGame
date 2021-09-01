@@ -280,6 +280,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -610,6 +613,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712569714335132549, guid: 1af2be87af1dc244ea24b4fe3fa7206d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712569714335132549, guid: 1af2be87af1dc244ea24b4fe3fa7206d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.072
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712569714335132549, guid: 1af2be87af1dc244ea24b4fe3fa7206d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.139
       objectReference: {fileID: 0}
     - target: {fileID: 3712569714335132666, guid: 1af2be87af1dc244ea24b4fe3fa7206d,
         type: 3}
@@ -6456,12 +6474,12 @@ PrefabInstance:
     - target: {fileID: 3711798768340293222, guid: e064b7f9969b7284fa55b088af68f578,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 3711798768340293222, guid: e064b7f9969b7284fa55b088af68f578,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.06
+      value: 13.2
       objectReference: {fileID: 0}
     - target: {fileID: 3711798768340293222, guid: e064b7f9969b7284fa55b088af68f578,
         type: 3}

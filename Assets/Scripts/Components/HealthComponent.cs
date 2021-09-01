@@ -17,6 +17,8 @@ namespace PixelCrew.Components
         
         public void ApplyHealthChange(int damageValue)
         {
+            if (_health <= 0) return;
+            
             _health += damageValue;
             _onChange?.Invoke(_health);
             if (damageValue > 0)

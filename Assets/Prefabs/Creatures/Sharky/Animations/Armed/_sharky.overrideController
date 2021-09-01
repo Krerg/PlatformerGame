@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: _sharky
+  m_Controller: {fileID: 9100000, guid: 09e34ab0773828a40bf4d55b68e9257a, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1a51f7a700892d5458299c6494b31892, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f7eb42e049d679e44b94c7ddb76b7f28, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c3283609af223be48ba566d605dbca66, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e7c1e43569fd522479d27c7e1c6dcc10, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5572efb2d789da94b87100b52e61f7fe, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e0392f973bde32c48b2a3cab196a8401, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e571057bd7788bc449d8a5b95ce05e47, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 691bd5775e3c5154d9e3b14698095531, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 68a26aac7875706479662ebbf6963792, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bbfab4f8786432649841c3a4c6950f5b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e6bb0859622147c4ca8109acbb43a0c2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 97be3b4ebab7c1048a7e1661fd5aa56f, type: 2}

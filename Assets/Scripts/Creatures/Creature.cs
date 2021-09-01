@@ -59,7 +59,7 @@ namespace PixelCrew.Creatures
             _animator.SetBool(IsGroundKey, _isGrounded);
             _animator.SetFloat(VerticalVelocityKey, _rigidbody.velocity.y);
             _animator.SetBool(IsRunningKey, _direction.x != 0);
-            UpdateFlipDirection();
+            UpdateSpriteDirection(_direction);
         }
 
         protected virtual float CalculateYVelocity()
@@ -97,14 +97,14 @@ namespace PixelCrew.Creatures
             return yVelocity;
         }
 
-        private void UpdateFlipDirection()
+        public void UpdateSpriteDirection(Vector2 direction)
         {
             var multiplier = _invertScale ? -1 : 1;
-            if (_direction.x > 0)
+            if (direction.x > 0)
             {
                 transform.localScale = new Vector3(multiplier, 1, 1);
             }
-            else if (_direction.x < 0)
+            else if (direction.x < 0)
             {
                 transform.localScale = new Vector3(-1* multiplier, 1, 1);
             }

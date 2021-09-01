@@ -16,13 +16,8 @@ namespace PixelCrew.Creatures.Weapons
         {
             _direction = transform.localScale.x > 0 ? 1 : -1;
             _rigidbody = GetComponent<Rigidbody2D>();
-        }
-
-        private void FixedUpdate()
-        {
-            var position = _rigidbody.position;
-            position.x += _direction * _speed;
-            _rigidbody.MovePosition(position);
+            var force = new Vector2(_direction * _speed, 0);
+            _rigidbody.AddForce(force, ForceMode2D.Impulse);
         }
     }
 }
