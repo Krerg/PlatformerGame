@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace PixelCrew.Components
+namespace Level
 {
     public class TeleportComponent : MonoBehaviour
     {

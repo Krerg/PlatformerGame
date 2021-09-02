@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace PixelCrew.Components
+namespace Components.Interaction
 {
     public class InteractableComponent : MonoBehaviour
     {

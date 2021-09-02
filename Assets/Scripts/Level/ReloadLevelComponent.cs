@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using PixelCrew.Model;
+﻿using PixelCrew.Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace PixelCrew.Components
+namespace Level
 {
     public class ReloadLevelComponent : MonoBehaviour
     {

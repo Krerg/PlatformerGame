@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using PixelCrew.Components;
 using UnityEngine;
 
-namespace Components
+namespace Components.Lifecycle
 {
     public class SpawnListComponent: MonoBehaviour
     {

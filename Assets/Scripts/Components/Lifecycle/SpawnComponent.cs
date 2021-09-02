@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-
-namespace PixelCrew.Components
+namespace Components.Lifecycle
 {
     public class SpawnComponent : MonoBehaviour
     {

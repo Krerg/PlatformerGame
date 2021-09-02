@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using Components;
+using Components.ColliderCollision;
+using Components.Lifecycle;
 using PixelCrew.Creatures.Behavior;
 using UnityEngine;
 

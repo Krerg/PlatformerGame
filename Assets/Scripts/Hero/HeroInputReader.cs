@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class HeroInputReader : MonoBehaviour
 {
 
-    [SerializeField] private Hero _hero;
+    [SerializeField] private Hero.Hero _hero;
 
     [SerializeField] private GrapplingHook _grapplingHook;
     

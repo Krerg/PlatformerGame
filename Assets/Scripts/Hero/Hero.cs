@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections;
-using Components;
+﻿using Components;
+using Components.ColliderCollision;
+using Components.Health;
 using PixelCrew;
-using PixelCrew.Components;
 using PixelCrew.Components.Extensions;
+using PixelCrew.Creatures;
 using PixelCrew.Model;
 using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace PixelCrew.Creatures
+namespace Hero
 {
     public class Hero : Creature
     {
@@ -19,6 +18,7 @@ namespace PixelCrew.Creatures
 
         [SerializeField] private ParticleSystem _hitParticles;
         [SerializeField] private HeroWallet _wallet;
+        [SerializeField] private SwordWallet _swordWallet;
         
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
@@ -145,6 +145,7 @@ namespace PixelCrew.Creatures
         {
             _session.Data.isArmed = true;
             _animator.runtimeAnimatorController = _armed;
+            _swordWallet.AddSword();
         }
 
         private void UpdateHeroArmState()
@@ -174,8 +175,11 @@ namespace PixelCrew.Creatures
             if (!_throwCooldown.IsReady) return;
             if (_session.Data.isArmed)
             {
-                _animator.SetTrigger(ThrowTrigger);
-                _throwCooldown.Reset();
+                if (_swordWallet.TryDisposeSword() > 0)
+                {
+                    _animator.SetTrigger(ThrowTrigger);
+                    _throwCooldown.Reset();    
+                }
             }
         }
 
