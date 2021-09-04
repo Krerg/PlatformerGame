@@ -23,7 +23,7 @@ TagManager:
   - Hero
   - Walls
   - Collectables
-  - 
+  - Checkers
   - 
   - 
   - 
@@ -45,4 +45,7 @@ TagManager:
     locked: 0
   - name: Level
     uniqueID: 2866075885
+    locked: 0
+  - name: Creatures
+    uniqueID: 2197013755
     locked: 0
