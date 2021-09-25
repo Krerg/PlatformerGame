@@ -1,11 +1,11 @@
-﻿using Components;
+﻿using System;
+using Components;
 using Components.ColliderCollision;
 using Components.Health;
 using PixelCrew;
 using PixelCrew.Components.Extensions;
 using PixelCrew.Creatures;
 using PixelCrew.Model;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Hero
@@ -17,11 +17,9 @@ namespace Hero
         [SerializeField] private float _slamDownVelocity;
 
         [SerializeField] private ParticleSystem _hitParticles;
-        [SerializeField] private HeroWallet _wallet;
-        [SerializeField] private SwordWallet _swordWallet;
-        
-        [SerializeField] private AnimatorController _armed;
-        [SerializeField] private AnimatorController _disarmed;
+
+        [SerializeField] private RuntimeAnimatorController  _armed;
+        [SerializeField] private RuntimeAnimatorController  _disarmed;
 
         [SerializeField] private Cooldown _throwCooldown;
         
@@ -32,6 +30,9 @@ namespace Hero
         private static readonly int ThrowTrigger = Animator.StringToHash("throw");
 
         private GameSession _session;
+        
+        private int SwordCount => _session.Data.Inventory.Count("Sword");
+        private int CoinsCount => _session.Data.Inventory.Count("Coin");
 
         protected override void Awake()
         {
@@ -43,8 +44,22 @@ namespace Hero
         {
             _session = FindObjectOfType<GameSession>();
             GetComponent<HealthComponent>().SetHealth(_session.Data.Hp);
-            _wallet.ChangeCoinAmount(_session.Data.Coins);
+            _session.Data.Inventory.OnChanged += OnInventoryChanged;
+            
             UpdateHeroArmState();
+        }
+
+        private void OnDestroy()
+        {
+            _session.Data.Inventory.OnChanged -= OnInventoryChanged;
+        }
+
+        private void OnInventoryChanged(string id, int value)
+        {
+            if (id == "Sword")
+            {
+                UpdateHeroArmState();
+            }
         }
 
         protected override void Update()
@@ -85,6 +100,7 @@ namespace Hero
             {
                 _particles.Spawn("Jump");
                 _allowDoubleJump = false;
+                DoJumpVfx();
                 return _jumpSpeed;
             }
 
@@ -104,10 +120,15 @@ namespace Hero
             }
         }
 
+        public void AddCollectable(string id, int value)
+        {
+            _session.Data.Inventory.Add(id, value);
+        }
+        
         public override void TakeDamage()
         {
             base.TakeDamage();
-            if (_wallet.Coins > 0)
+            if (CoinsCount > 0)
             {
                 SpawnCoins();
             }
@@ -115,8 +136,8 @@ namespace Hero
 
         private void SpawnCoins()
         {
-            var numCoinsToDispose = Mathf.Min(_wallet.Coins, 5);
-            _wallet.DisposeCoins(numCoinsToDispose);
+            var numCoinsToDispose = Mathf.Min(CoinsCount, 5);
+            _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
             var burst = _hitParticles.emission.GetBurst(0);
             burst.count = numCoinsToDispose;
             _hitParticles.emission.SetBurst(0, burst);
@@ -136,21 +157,13 @@ namespace Hero
 
         public override void Attack()
         {
-            if (!_session.Data.isArmed) return;
+            if (SwordCount <= 0) return;
             base.Attack();
-        }
-
-
-        public void ArmHero()
-        {
-            _session.Data.isArmed = true;
-            _animator.runtimeAnimatorController = _armed;
-            _swordWallet.AddSword();
         }
 
         private void UpdateHeroArmState()
         {
-            _animator.runtimeAnimatorController = _session.Data.isArmed ? _armed : _disarmed;
+            _animator.runtimeAnimatorController = SwordCount > 0 ? _armed : _disarmed;
         }
 
 
@@ -162,24 +175,15 @@ namespace Hero
             _session.Data.Hp = health;
         }
 
-        /**
-     * TODO Move to separete class
-     */
-        public void OnCoinsChanged(int coins)
-        {
-            _session.Data.Coins = coins;
-        }
-
         public void Throw()
         {
             if (!_throwCooldown.IsReady) return;
-            if (_session.Data.isArmed)
+            if (SwordCount > 1)
             {
-                if (_swordWallet.TryDisposeSword() > 0)
-                {
-                    _animator.SetTrigger(ThrowTrigger);
-                    _throwCooldown.Reset();    
-                }
+                Sounds.Play("Range");
+                _session.Data.Inventory.Remove("Sword", 1);
+                _animator.SetTrigger(ThrowTrigger);
+                _throwCooldown.Reset();
             }
         }
 
@@ -187,5 +191,6 @@ namespace Hero
         {
             _particles.Spawn("Throw");
         }
+        
     }
 }

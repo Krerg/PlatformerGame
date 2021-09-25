@@ -46,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023852587, y: -0.11927366}
+  m_Offset: {x: -0.0520584, y: -0.11927366}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.139766, y: 0.7614527}
+  m_Size: {x: 3.0525403, y: 0.7614527}
   m_EdgeRadius: 0
 --- !u!114 &30464046
 MonoBehaviour:
@@ -431,12 +431,12 @@ GameObject:
   - component: {fileID: 3712569715331749238}
   - component: {fileID: 3712569715331749239}
   - component: {fileID: 4269858635877822802}
-  - component: {fileID: 3712569715331749233}
   - component: {fileID: 3712569715331749232}
   - component: {fileID: 3712569715331749235}
   - component: {fileID: 1168928699}
   - component: {fileID: 1511152068}
   - component: {fileID: 1511152075}
+  - component: {fileID: 2333029825298427328}
   m_Layer: 12
   m_Name: Sharky
   m_TagString: Enemy
@@ -576,33 +576,7 @@ MonoBehaviour:
   _attackRange: {fileID: 3712569713880402058}
   _particles: {fileID: 1168928699}
   _rigidbody: {fileID: 3712569715331749238}
---- !u!114 &3712569715331749233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3712569715331749225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca1cd28d5e9748040a9d7ff04aa14f80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coins: 20
-  _onChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnCoinsChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  Sounds: {fileID: 2333029825298427328}
 --- !u!95 &3712569715331749232
 Animator:
   serializedVersion: 3
@@ -666,20 +640,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnHealthChanged
-        m_Mode: 0
+      - m_Target: {fileID: 3712569715331749225}
+        m_MethodName: set_layer
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1168928699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,6 +715,20 @@ MonoBehaviour:
   _creature: {fileID: 4269858635877822802}
   _animator: {fileID: 3712569715331749232}
   _patrol: {fileID: 1511152068}
+--- !u!114 &2333029825298427328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712569715331749225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3063c505b7f64dab9ce52414ba66c9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 0}
+  _sounds: []
 --- !u!1 &3712569715393018431
 GameObject:
   m_ObjectHideFlags: 0

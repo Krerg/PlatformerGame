@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1663377135906124430}
   - component: {fileID: 1663377135906124431}
   - component: {fileID: 1663377135906124427}
-  - component: {fileID: 1663377135906124424}
   - component: {fileID: 1663377135906124426}
   - component: {fileID: 1663377135906124421}
+  - component: {fileID: 3125225743043208837}
   m_Layer: 0
   m_Name: Potion
   m_TagString: Untagged
@@ -141,19 +141,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.41392064, y: 0.54980105}
   m_EdgeRadius: 0
---- !u!114 &1663377135906124424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663377135906124428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce400dabefdc7dc4c84b4a120e6faf46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 5
 --- !u!114 &1663377135906124426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,8 +157,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1663377135906124424}
-        m_MethodName: OnDamageTaken
+      - m_Target: {fileID: 3125225743043208837}
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -205,3 +192,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 1663377135906124428}
+--- !u!114 &3125225743043208837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663377135906124428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf7eeb19e5441059b8cb379d66004b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Potion
+  _count: 1

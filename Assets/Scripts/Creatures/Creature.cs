@@ -1,5 +1,6 @@
 ﻿using System;
 using Components;
+using Components.Audio;
 using Components.ColliderCollision;
 using Components.Lifecycle;
 using PixelCrew.Components;
@@ -26,8 +27,9 @@ namespace PixelCrew.Creatures
         protected Vector2 _direction;
         protected Animator _animator;
         protected bool _isGrounded;
-
         private bool _isJumping;
+
+        [SerializeField] protected PlaySoundsComponent Sounds;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
@@ -94,11 +96,17 @@ namespace PixelCrew.Creatures
             {
                 yVelocity = _jumpSpeed;
                 _particles.Spawn("Jump");
+                DoJumpVfx();
             }
 
             return yVelocity;
         }
 
+        protected void DoJumpVfx()
+        {
+            Sounds.Play("Jump");
+        }
+        
         public void UpdateSpriteDirection(Vector2 direction)
         {
             var multiplier = _invertScale ? -1 : 1;
@@ -122,6 +130,7 @@ namespace PixelCrew.Creatures
         public virtual void Attack()
         {
             _animator.SetTrigger(AttackTrigger);
+            Sounds.Play("Melee");
         }
 
         /**
@@ -130,6 +139,7 @@ namespace PixelCrew.Creatures
         public void OnAttackEvent()
         {
             _attackRange.Check();
+            
         }
     }
 }

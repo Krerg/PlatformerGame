@@ -1,5 +1,164 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &115002240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 115002244}
+  - component: {fileID: 115002242}
+  - component: {fileID: 115002243}
+  - component: {fileID: 115002241}
+  m_Layer: 13
+  m_Name: Vfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &115002244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115002240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3712569715331749227}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &115002242
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115002240}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a419446f2340a4a47bba95590c57cb70, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.316
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!81 &115002243
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115002240}
+  m_Enabled: 1
+--- !u!114 &115002241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115002240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3063c505b7f64dab9ce52414ba66c9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 115002242}
+  _sounds:
+  - _id: Jump
+    _clip: {fileID: 8300000, guid: 14e145c446df4c24fa412509e5e7c408, type: 3}
+  - _id: Melee
+    _clip: {fileID: 8300000, guid: 1378dbd1639e44741b8c2b1762e2d7c6, type: 3}
+  - _id: Range
+    _clip: {fileID: 8300000, guid: 81e74a1f632f4a548afb3f305891c5b4, type: 3}
+  - _id: Hurt
+    _clip: {fileID: 8300000, guid: 2a1bbffed33c1bf49b877abb0153e5ce, type: 3}
 --- !u!1 &704755759
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +170,7 @@ GameObject:
   - component: {fileID: 704755760}
   - component: {fileID: 704755762}
   - component: {fileID: 704755761}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: InteractionCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +222,7 @@ MonoBehaviour:
   - Interactable
   _mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
 --- !u!114 &704755761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,7 +244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6792074920846880487}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ThrowSwordSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +276,7 @@ GameObject:
   - component: {fileID: 3712569713880402059}
   - component: {fileID: 3712569713880402058}
   - component: {fileID: 897420933}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AttackPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +353,7 @@ GameObject:
   - component: {fileID: 3712569714173162337}
   - component: {fileID: 3712569714173162339}
   - component: {fileID: 3712569714173162336}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +418,7 @@ GameObject:
   - component: {fileID: 3712569714195713398}
   - component: {fileID: 3712569714195713399}
   - component: {fileID: 3712569714195713396}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5070,7 +5229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3712569714335132549}
   - component: {fileID: 3712569714335132548}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FootStepPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5115,7 +5274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3712569715312905365}
   - component: {fileID: 3712569715312905354}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AttackParticlePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5160,7 +5319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3712569715318491310}
   - component: {fileID: 3712569715318491305}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FallParticlePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5210,14 +5369,13 @@ GameObject:
   - component: {fileID: 3712569715331749236}
   - component: {fileID: 3712569715331749238}
   - component: {fileID: 3712569715331749239}
-  - component: {fileID: 3712569715331749233}
   - component: {fileID: 3712569715331749232}
   - component: {fileID: 3712569715331749235}
   - component: {fileID: 3712569715331749245}
   - component: {fileID: 3712569715331749244}
   - component: {fileID: 3712569715331749247}
   - component: {fileID: 1168928699}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5244,6 +5402,8 @@ Transform:
   - {fileID: 3712569715312905365}
   - {fileID: 704755760}
   - {fileID: 6792074920846880487}
+  - {fileID: 6886767326680968197}
+  - {fileID: 115002244}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5312,6 +5472,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hero: {fileID: 3712569715331749237}
   _grapplingHook: {fileID: 3712569715331749245}
+  _healUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3239831742201018242}
+        m_MethodName: Check
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3712569715331749237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5336,12 +5510,14 @@ MonoBehaviour:
   _attackRange: {fileID: 3712569713880402058}
   _particles: {fileID: 1168928699}
   _rigidbody: {fileID: 3712569715331749238}
-  _interactionCheck: {fileID: 0}
+  Sounds: {fileID: 115002241}
+  _interactionCheck: {fileID: 704755762}
   _slamDownVelocity: 13
   _hitParticles: {fileID: 3712569714195713399}
-  _wallet: {fileID: 3712569715331749233}
   _armed: {fileID: 9100000, guid: 09e34ab0773828a40bf4d55b68e9257a, type: 2}
   _disarmed: {fileID: 9100000, guid: f30a22e67b90da845a82ffc7b5efc41e, type: 2}
+  _throwCooldown:
+    _value: 0
 --- !u!114 &3712569715331749236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5448,9 +5624,35 @@ MonoBehaviour:
     m_ActionId: cb7f68b8-eac3-487c-a294-b7e8e48aa3cc
     m_ActionName: Hero/Attack[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3712569715331749237}
+        m_MethodName: Throw
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 42fc56e3-b2f9-47d8-aba5-3bcdcf6a120e
     m_ActionName: Hero/Throw[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3712569715331749226}
+        m_MethodName: OnUseHealthPotion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 129f59ba-6237-4b8a-b80e-b9e4144b4926
+    m_ActionName: Hero/UseHeal[/Keyboard/h]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -5493,33 +5695,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0056146383, y: 0.033175588}
   m_Size: {x: 0.7387707, y: 0.8086488}
   m_Direction: 0
---- !u!114 &3712569715331749233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3712569715331749225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca1cd28d5e9748040a9d7ff04aa14f80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coins: 20
-  _onChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3712569715331749237}
-        m_MethodName: OnCoinsChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!95 &3712569715331749232
 Animator:
   serializedVersion: 3
@@ -5567,6 +5742,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 115002241}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Hurt
           m_BoolArgument: 0
         m_CallState: 2
   _onHealthEmpty:
@@ -5779,7 +5965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3712569715393018430}
   - component: {fileID: 3712569715393018425}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: JumpParticlePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5814,3 +6000,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 3712569715393018430}
   _prefab: {fileID: 9187592090587555981, guid: 6fa7ff4f2870c3045bed4d2ffdee7294, type: 3}
+--- !u!1 &4585086987328091690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6886767326680968197}
+  - component: {fileID: 3239831742201018242}
+  m_Layer: 13
+  m_Name: PotionItemUse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6886767326680968197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4585086987328091690}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3712569715331749227}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3239831742201018242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4585086987328091690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f8750f87f24844956598d640809e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _required:
+  - Id: Potion
+    Value: 1
+  _removeAfterUse: 1
+  _onSucess:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3712569715331749235}
+        m_MethodName: ApplyHealthChange
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFail:
+    m_PersistentCalls:
+      m_Calls: []

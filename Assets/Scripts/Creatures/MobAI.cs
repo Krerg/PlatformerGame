@@ -117,6 +117,10 @@ namespace PixelCrew.Creatures
 
         private void StartState(IEnumerator coroutine)
         {
+            if (_isDead)
+            {
+                return;
+            }
             if (_current != null)
                 StopCoroutine(_current);
 

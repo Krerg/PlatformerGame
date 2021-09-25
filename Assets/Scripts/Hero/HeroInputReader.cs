@@ -1,5 +1,6 @@
 ﻿using PixelCrew.Creatures;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class HeroInputReader : MonoBehaviour
@@ -8,6 +9,8 @@ public class HeroInputReader : MonoBehaviour
     [SerializeField] private Hero.Hero _hero;
 
     [SerializeField] private GrapplingHook _grapplingHook;
+
+    [SerializeField] private UnityEvent _healUp;
     
     public void OnSaySomething(InputAction.CallbackContext context)
     {
@@ -58,6 +61,14 @@ public class HeroInputReader : MonoBehaviour
         if (context.performed)
         {
             _hero.Throw();
+        }
+    }
+
+    public void OnUseHealthPotion(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        { 
+            _healUp?.Invoke();
         }
     }
     
