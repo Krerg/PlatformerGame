@@ -141,5 +141,16 @@ namespace PixelCrew.Creatures
             _attackRange.Check();
             
         }
+
+        public void SetInvulnerableToDamage()
+        {
+            gameObject.tag = "InvulnerableMob";
+        }
+        
+        public void SetVulnerableToDamage()
+        {
+            gameObject.tag = "Enemy";
+        }
+        
     }
 }

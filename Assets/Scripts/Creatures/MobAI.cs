@@ -13,7 +13,7 @@ namespace PixelCrew.Creatures
         [SerializeField] private LayerCheck _vision;
         [SerializeField] private LayerCheck _canAttack;
 
-        [SerializeField] private float _alarmDelay = 1f;
+        [SerializeField] protected float _alarmDelay = 1f;
         [SerializeField] private float _attackCooldown = 1f;
 
         private static readonly int IsDeadKey = Animator.StringToHash("is-dead");
@@ -24,8 +24,8 @@ namespace PixelCrew.Creatures
 
         private GameObject _target;
 
-        [SerializeField] private SpawnListComponent _particles;
-        [SerializeField] private Creature _creature;
+        [SerializeField] protected SpawnListComponent _particles;
+        [SerializeField] protected Creature _creature;
         [SerializeField] private Animator _animator;
 
         [Header("Behavior")]
@@ -44,7 +44,7 @@ namespace PixelCrew.Creatures
             StartState(AgroToHero());
         }
 
-        private IEnumerator AgroToHero()
+        protected virtual IEnumerator AgroToHero()
         {
             LookAtHero();
             StopCreature();
@@ -53,18 +53,18 @@ namespace PixelCrew.Creatures
             StartState(GoToHero());
         }
 
-        private void LookAtHero()
+        public void LookAtHero()
         {
             var direction = GetDirectionToTarget();
             _creature.UpdateSpriteDirection(direction);
         }
 
-        private void StopCreature()
+        protected void StopCreature()
         {
             _creature.SetDirection(Vector2.zero);
         }
         
-        private IEnumerator GoToHero()
+        protected virtual IEnumerator GoToHero()
         {
             while (_vision.IsTouchingLayer)
             {
@@ -86,7 +86,7 @@ namespace PixelCrew.Creatures
             StartState(Patrolling());
         }
 
-        private IEnumerator Attack()
+        protected virtual IEnumerator Attack()
         {
             while (_canAttack.IsTouchingLayer)
             {
@@ -110,12 +110,12 @@ namespace PixelCrew.Creatures
             return direction.normalized;
         }
 
-        private IEnumerator Patrolling()
+        protected virtual IEnumerator Patrolling()
         {
             return _patrol.DoPatrol();
         }
 
-        private void StartState(IEnumerator coroutine)
+        protected void StartState(IEnumerator coroutine)
         {
             if (_isDead)
             {

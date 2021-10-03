@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Interactable
+  - InvulnerableMob
   layers:
   - Default
   - TransparentFX

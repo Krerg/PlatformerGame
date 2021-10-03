@@ -2,6 +2,7 @@
 using Components;
 using Components.ColliderCollision;
 using Components.Health;
+using Model.Data;
 using PixelCrew;
 using PixelCrew.Components.Extensions;
 using PixelCrew.Creatures;
@@ -10,7 +11,7 @@ using UnityEngine;
 
 namespace Hero
 {
-    public class Hero : Creature
+    public class Hero : Creature, ICanAddInInventory
     {
         [SerializeField] private CheckCircleOverlap _interactionCheck;
 
