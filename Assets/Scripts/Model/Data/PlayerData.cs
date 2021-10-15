@@ -1,4 +1,5 @@
 ﻿using System;
+using Model.Data.Property;
 using UnityEngine;
 
 namespace Model.Data
@@ -9,9 +10,9 @@ namespace Model.Data
 
         [SerializeField] private InventoryData _inventory;
 
-        public InventoryData Inventory => _inventory;
+        public IntProperty Hp = new IntProperty();
         
-        public int Hp;
+        public InventoryData Inventory => _inventory;
 
     }
 }

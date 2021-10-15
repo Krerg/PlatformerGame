@@ -14,6 +14,9 @@ namespace Components.Audio
             {
                 if (sound.Id == id)
                 {
+                    if (_audioSource == null)
+                        _audioSource = GameObject.FindWithTag("SfxAudioSource").GetComponent<AudioSource>();
+                    
                     _audioSource.PlayOneShot(sound.Clip);
                     break;
                 }

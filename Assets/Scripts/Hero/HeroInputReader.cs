@@ -41,7 +41,6 @@ public class HeroInputReader : MonoBehaviour
             _hero.Attack();    
         }
     }
-    
 
     public void OnGrapplingHook(InputAction.CallbackContext context)
     {

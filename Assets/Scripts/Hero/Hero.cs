@@ -44,7 +44,7 @@ namespace Hero
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
-            GetComponent<HealthComponent>().SetHealth(_session.Data.Hp);
+            GetComponent<HealthComponent>().SetHealth(_session.Data.Hp.Value);
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
             
             UpdateHeroArmState();
@@ -173,7 +173,7 @@ namespace Hero
      */
         public void OnHealthChanged(int health)
         {
-            _session.Data.Hp = health;
+            _session.Data.Hp.Value = health;
         }
 
         public void Throw()
