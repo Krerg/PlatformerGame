@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using PixelCrew.Model.Definitions;
 using UnityEngine;
 
@@ -25,10 +26,9 @@ namespace Model.Data
             }
             
             var item = GetItem(id);
-            if (item == null || !itemDef.IsStackable)
+            if (item == null || !itemDef.HasTag(ItemTag.Stackable))
             {
                 item = new InventoryItemData(id);
-                
                 _inventory.Add(item);
             }
             item.Value += value;
@@ -36,6 +36,21 @@ namespace Model.Data
             OnChanged?.Invoke(id, Count(id));
         }
 
+        public InventoryItemData[] GetAll(params ItemTag[] tags)
+        {
+            var retValue = new List<InventoryItemData>();
+            foreach (var itemData in _inventory)
+            {
+                var itemDef = DefsFacade.I.Items.Get(itemData.Id);
+                var isAllRequirementsMet = tags.All(x => itemDef.HasTag(x));
+                if (isAllRequirementsMet)
+                {
+                    retValue.Add(itemData);
+                }
+            }
+            return retValue.ToArray();
+        }
+        
         public void Remove(string id, int value)
         {
             var itemDef = DefsFacade.I.Items.Get(id);

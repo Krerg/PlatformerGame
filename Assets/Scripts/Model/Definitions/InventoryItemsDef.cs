@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace PixelCrew.Model.Definitions
@@ -32,10 +33,15 @@ namespace PixelCrew.Model.Definitions
     public struct ItemDef
     {
         [SerializeField] private String _id;
-        [SerializeField] private bool _isStackable;
+        [SerializeField] private Sprite _icon;
         public string Id => _id;
-        public bool IsStackable => _isStackable;
-
+        [SerializeField] private ItemTag[] _tags;
         public bool IsVoid => string.IsNullOrEmpty(_id);
+        public Sprite icon => _icon;
+
+        public bool HasTag(ItemTag tag)
+        {
+            return _tags.Contains(tag);
+        }
     }
 }

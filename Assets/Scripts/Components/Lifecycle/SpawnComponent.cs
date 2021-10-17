@@ -13,6 +13,10 @@ namespace Components.Lifecycle
             var instantiate = Instantiate(_prefab, _target.position, Quaternion.identity);
             instantiate.transform.localScale = _target.lossyScale;
         }
-        
+
+        public void SetPrefab(GameObject prefab)
+        {
+            _prefab = prefab;
+        }
     }
 }

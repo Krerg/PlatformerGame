@@ -10,8 +10,6 @@ public class HeroInputReader : MonoBehaviour
 
     [SerializeField] private GrapplingHook _grapplingHook;
 
-    [SerializeField] private UnityEvent _healUp;
-    
     public void OnSaySomething(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -63,11 +61,19 @@ public class HeroInputReader : MonoBehaviour
         }
     }
 
+    public void OnNextItem(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _hero.NextItem();
+        }
+    }
+    
     public void OnUseHealthPotion(InputAction.CallbackContext context)
     {
         if (context.performed)
-        { 
-            _healUp?.Invoke();
+        {
+            _hero.UseHealthPotion();
         }
     }
     

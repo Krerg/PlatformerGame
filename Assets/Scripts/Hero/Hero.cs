@@ -2,11 +2,13 @@
 using Components;
 using Components.ColliderCollision;
 using Components.Health;
+using Components.Lifecycle;
 using Model.Data;
 using PixelCrew;
 using PixelCrew.Components.Extensions;
 using PixelCrew.Creatures;
 using PixelCrew.Model;
+using PixelCrew.Model.Definitions;
 using UnityEngine;
 
 namespace Hero
@@ -23,22 +25,34 @@ namespace Hero
         [SerializeField] private RuntimeAnimatorController  _disarmed;
 
         [SerializeField] private Cooldown _throwCooldown;
-        
-        private float _defaultGravityScale;
 
+        [SerializeField] private SpawnComponent _throwSpawner;
+
+        [SerializeField] private HealthComponent _heroHealth;
+        
         private bool _allowDoubleJump;
 
         private static readonly int ThrowTrigger = Animator.StringToHash("throw");
 
         private GameSession _session;
-        
-        private int SwordCount => _session.Data.Inventory.Count("Sword");
-        private int CoinsCount => _session.Data.Inventory.Count("Coin");
 
-        protected override void Awake()
+        private const string SwordId = "Sword";
+        
+        private int SwordCount => _session.Data.Inventory.Count(SwordId);
+        private int CoinsCount => _session.Data.Inventory.Count("Coin");
+        private string SelectedId => _session.QuickInventory.SelectedItem.Id;
+        
+        private bool CanThrow
         {
-            base.Awake();
-            _defaultGravityScale = _rigidbody.gravityScale;
+            get
+            {
+                if (SelectedId == SwordId)
+                {
+                    return SwordCount > 1;
+                }
+                var def = DefsFacade.I.Items.Get(SelectedId);
+                return def.HasTag(ItemTag.Throwable);
+            }
         }
 
         private void Start()
@@ -57,15 +71,10 @@ namespace Hero
 
         private void OnInventoryChanged(string id, int value)
         {
-            if (id == "Sword")
+            if (id == SwordId)
             {
                 UpdateHeroArmState();
             }
-        }
-
-        protected override void Update()
-        {
-            base.Update();
         }
 
         void OnCollisionEnter2D(Collision2D col)
@@ -179,19 +188,36 @@ namespace Hero
         public void Throw()
         {
             if (!_throwCooldown.IsReady) return;
-            if (SwordCount > 1)
+            if (CanThrow)
             {
-                Sounds.Play("Range");
-                _session.Data.Inventory.Remove("Sword", 1);
                 _animator.SetTrigger(ThrowTrigger);
                 _throwCooldown.Reset();
             }
         }
 
+        public void UseHealthPotion()
+        {
+            var def = DefsFacade.I.Items.Get(SelectedId);
+            var isHealItem =  def.HasTag(ItemTag.Usable) && def.Id.Contains("Potion");
+            if (!isHealItem) return;
+            var healAmount = DefsFacade.I.HealItems.Get(SelectedId).HealAmount;
+            _heroHealth.ApplyHealthChange(healAmount);
+            _session.Data.Inventory.Remove(SelectedId, 1);
+        }
+
         public void OnDoThrow()
         {
-            _particles.Spawn("Throw");
+            Sounds.Play("Range");
+            var id = _session.QuickInventory.SelectedItem.Id;
+            var throwableDef = DefsFacade.I.ThrowableItems.Get(id);
+            _throwSpawner.SetPrefab(throwableDef.Projectile);
+            _throwSpawner.Spawn();
+            _session.Data.Inventory.Remove(id, 1);
         }
-        
+
+        public void NextItem()
+        {
+            _session.QuickInventory.SetNextItem();
+        }
     }
 }

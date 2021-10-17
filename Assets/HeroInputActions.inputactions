@@ -6,14 +6,6 @@
             "id": "b792ec2f-01bc-4248-bb68-35618462dd6a",
             "actions": [
                 {
-                    "name": "HorizontalMovement",
-                    "type": "Button",
-                    "id": "20706163-57a1-4806-b078-7175ec1e4918",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "SaySomething",
                     "type": "Button",
                     "id": "1d305dda-4b24-40a2-b3b2-b69e0a7e6763",
@@ -62,48 +54,23 @@
                     "interactions": ""
                 },
                 {
-                    "name": "UseHeal",
+                    "name": "NextItem",
                     "type": "Button",
                     "id": "129f59ba-6237-4b8a-b80e-b9e4144b4926",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "UseHealPotion",
+                    "type": "Button",
+                    "id": "97450a22-4393-4878-a392-c0cea2572395",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
             ],
             "bindings": [
-                {
-                    "name": "Keyboard",
-                    "id": "3394b5a4-fc97-4b12-914f-7fd58253f9df",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HorizontalMovement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "9914c74e-1ed0-450e-9491-7005cf543a2b",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HorizontalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "f5dd5979-5e5d-4822-aeb2-501b3d4a4c3a",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HorizontalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
                 {
                     "name": "",
                     "id": "6b9b5b52-9744-4a39-a41c-16605a064d71",
@@ -217,11 +184,22 @@
                 {
                     "name": "",
                     "id": "515654eb-09b9-45b5-9019-619ee4593f2e",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c1e0d09-c04b-4514-9a15-36dd994846ff",
                     "path": "<Keyboard>/h",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UseHeal",
+                    "action": "UseHealPotion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

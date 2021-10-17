@@ -6,13 +6,17 @@ namespace PixelCrew.Model.Definitions
     [CreateAssetMenu(menuName = "Defs/DefsFacade", fileName = "DefsFacade")]
     public class DefsFacade : ScriptableObject
     {
-        [SerializeField] private InventoryItemsDef _defs;
+        [SerializeField] private InventoryItemsDef _items;
+        [SerializeField] private ThrowableItemsDef _throwabeItemsdefs;
+        [SerializeField] private HealItemsDef _healItemsdefs;
         [SerializeField] private PlayerDef _player;
         
         private static DefsFacade _instance;
         public static DefsFacade I => _instance == null ? LoadDefinitions() : _instance;
 
-        public InventoryItemsDef Items => _defs;
+        public InventoryItemsDef Items => _items;
+        public ThrowableItemsDef ThrowableItems => _throwabeItemsdefs;
+        public HealItemsDef HealItems => _healItemsdefs;
         public PlayerDef Player => _player;
         
         private static DefsFacade LoadDefinitions()

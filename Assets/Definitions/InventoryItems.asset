@@ -14,10 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - _id: Coin
-    _isStackable: 1
+    _icon: {fileID: -2322180950842035098, guid: b15342eaba081854594587a0040221e0,
+      type: 3}
+    _tags: 00000000
   - _id: Sword
-    _isStackable: 1
+    _icon: {fileID: 21300000, guid: fa3444eb76313a34197eb0d879a9a75c, type: 3}
+    _tags: 010000000000000002000000
   - _id: Key
-    _isStackable: 1
-  - _id: Potion
-    _isStackable: 0
+    _icon: {fileID: 21300000, guid: 6bd9eb676f6009648ac725a5cfbf082e, type: 3}
+    _tags: 
+  - _id: Pearl
+    _icon: {fileID: 21300000, guid: 5844b3c529154e74084cbe27c705301b, type: 3}
+    _tags: 000000000100000002000000
+  - _id: PotionSmall
+    _icon: {fileID: 2011574832808370117, guid: e6dee1911a980b54aad838a8d88fafe8, type: 3}
+    _tags: 0000000001000000
+  - _id: PotionBig
+    _icon: {fileID: 3714227102187029162, guid: e6dee1911a980b54aad838a8d88fafe8, type: 3}
+    _tags: 0000000001000000

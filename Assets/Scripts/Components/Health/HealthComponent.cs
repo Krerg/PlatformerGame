@@ -12,12 +12,23 @@ namespace Components.Health
         [SerializeField] private UnityEvent _onHealthEmpty;
 
         [SerializeField] private HealthChangeEvent _onChange;
+
+        private int maxHealth;
         
+        private void Start()
+        {
+            maxHealth = _health;
+        }
+
         public void ApplyHealthChange(int damageValue)
         {
             if (_health <= 0) return;
             
             _health += damageValue;
+            if (_health > maxHealth)
+            {
+                _health = maxHealth;
+            }
             _onChange?.Invoke(_health);
             if (damageValue > 0)
             {

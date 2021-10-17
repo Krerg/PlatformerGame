@@ -6,7 +6,7 @@ using UnityEngine;
 namespace PixelCrew.Model.Definitions.Editor
 {
     [CustomPropertyDrawer(typeof(InventoryIdAttribute))]
-    public class InventoryIdAttributeDrawer: PropertyDrawer
+    public class InventoryIdAttributeDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {

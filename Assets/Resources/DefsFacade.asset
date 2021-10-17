@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969fb43e9d394dc4b8afe2dff5c81023, type: 3}
   m_Name: DefsFacade
   m_EditorClassIdentifier: 
-  _defs: {fileID: 11400000, guid: 8e70be04fae1b084886101e05fd01aed, type: 2}
+  _items: {fileID: 11400000, guid: 8e70be04fae1b084886101e05fd01aed, type: 2}
+  _throwabeItemsdefs: {fileID: 11400000, guid: eb68e24eda9e1d4459303e56d03f9426, type: 2}
+  _healItemsdefs: {fileID: 11400000, guid: 4acf5f70b79a9384a83d1fd7fa2d210c, type: 2}
   _player: {fileID: 11400000, guid: fe7efb3cd70707f43bb89f9d0d8bd529, type: 2}

@@ -124,6 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6792074920846880487}
+  - component: {fileID: 7997977677943214953}
   m_Layer: 13
   m_Name: ThrowSwordSpawnPosition
   m_TagString: Untagged
@@ -145,6 +146,20 @@ Transform:
   m_Father: {fileID: 3712569715331749227}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7997977677943214953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2156025033636035617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9095a4131af62f4db4a05e3afe9c24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 6792074920846880487}
+  _prefab: {fileID: 6818434974083666737, guid: 756d63b9178ab294b9a67872bedac87b, type: 3}
 --- !u!1 &3712569713880402056
 GameObject:
   m_ObjectHideFlags: 0
@@ -5353,20 +5368,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hero: {fileID: 3712569715331749237}
   _grapplingHook: {fileID: 3712569715331749245}
-  _healUp:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3239831742201018242}
-        m_MethodName: Check
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &3712569715331749237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5399,6 +5400,8 @@ MonoBehaviour:
   _disarmed: {fileID: 9100000, guid: f30a22e67b90da845a82ffc7b5efc41e, type: 2}
   _throwCooldown:
     _value: 0
+  _throwSpawner: {fileID: 7997977677943214953}
+  _heroHealth: {fileID: 0}
 --- !u!114 &3712569715331749236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5425,10 +5428,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 20706163-57a1-4806-b078-7175ec1e4918
-    m_ActionName: Hero/HorizontalMovement[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3712569715331749226}
@@ -5506,9 +5505,9 @@ MonoBehaviour:
     m_ActionName: Hero/Attack[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3712569715331749237}
-        m_MethodName: Throw
-        m_Mode: 1
+      - m_Target: {fileID: 3712569715331749226}
+        m_MethodName: OnThrow
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5522,7 +5521,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3712569715331749226}
-        m_MethodName: OnUseHealthPotion
+        m_MethodName: OnNextItem
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5623,17 +5622,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Hurt
           m_BoolArgument: 0
         m_CallState: 2
   _onHealthEmpty:
@@ -5836,6 +5824,8 @@ MonoBehaviour:
     Component: {fileID: 3712569715318491305}
   - Id: Attack
     Component: {fileID: 3712569715312905354}
+  - Id: Throw
+    Component: {fileID: 7997977677943214953}
 --- !u!114 &3712569715099436999
 MonoBehaviour:
   m_ObjectHideFlags: 0
