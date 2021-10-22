@@ -32,3 +32,6 @@ MonoBehaviour:
   - _id: PotionBig
     _icon: {fileID: 3714227102187029162, guid: e6dee1911a980b54aad838a8d88fafe8, type: 3}
     _tags: 0000000001000000
+  - _id: Gem
+    _icon: {fileID: 5489425550423852611, guid: cc4126b30e5b4bb4facfaa9ebe4e1cd9, type: 3}
+    _tags: 00000000
