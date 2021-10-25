@@ -10908,9 +10908,10 @@ MonoBehaviour:
   _mode: 0
   _bound:
     _sentences:
-    - You need a key
-    - Its on the lvel. Search!
+    - door1
+    - door2
   _external: {fileID: 0}
+  localize: 1
 --- !u!95 &708953659 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5117285992686683895, guid: eda96f7bafdf26e43ab729684f7ffe2e,
@@ -11021,6 +11022,7 @@ MonoBehaviour:
   _bound:
     _sentences: []
   _external: {fileID: 0}
+  localize: 1
 --- !u!114 &1126842268
 MonoBehaviour:
   m_ObjectHideFlags: 0

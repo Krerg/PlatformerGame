@@ -354,6 +354,7 @@ GameObject:
   - component: {fileID: 642919086068255852}
   - component: {fileID: 642919086068255850}
   - component: {fileID: 642919086068255853}
+  - component: {fileID: 8975881008324442372}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -421,6 +422,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Options
+--- !u!114 &8975881008324442372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642919086068255855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfebebe57fb54df3acc9b8165869d202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: btn_options
+  _capitalize: 0
 --- !u!1 &642919086238927019
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +1007,7 @@ GameObject:
   - component: {fileID: 123534746444351886}
   - component: {fileID: 6369731773946156618}
   - component: {fileID: 7063220471854746607}
+  - component: {fileID: 5202593149812222173}
   m_Layer: 5
   m_Name: MusicLabel
   m_TagString: Untagged
@@ -1061,6 +1077,20 @@ MonoBehaviour:
   m_Text: 'SFX
 
 '
+--- !u!114 &5202593149812222173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4173937076574752255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfebebe57fb54df3acc9b8165869d202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: lbl_sfx
+  _capitalize: 0
 --- !u!1 &4552948428276321978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,6 +1239,7 @@ GameObject:
   - component: {fileID: 3740794322699907559}
   - component: {fileID: 4295675461546013878}
   - component: {fileID: 6890187758316770079}
+  - component: {fileID: 3087466701857807949}
   m_Layer: 5
   m_Name: MusicLabel
   m_TagString: Untagged
@@ -1278,6 +1309,20 @@ MonoBehaviour:
   m_Text: 'Music
 
 '
+--- !u!114 &3087466701857807949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5571807085956921248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfebebe57fb54df3acc9b8165869d202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: lbl_music
+  _capitalize: 0
 --- !u!1 &5589572366033362829
 GameObject:
   m_ObjectHideFlags: 0

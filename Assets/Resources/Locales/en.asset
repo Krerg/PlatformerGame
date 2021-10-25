@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56f3f79957544fb902a83bf3c24dd8c, type: 3}
+  m_Name: en
+  m_EditorClassIdentifier: 
+  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vTrsWdPbayFa_s4Gf5ylFZKVZBI2KjoraGBAXkSvwrUE5sClCOcHAJ0Vx_2rtnyiFOek81Mg0AItaph/pub?gid=1933094490&single=true&output=tsv
+  _localeItems:
+  - Key: btn_start
+    Value: "Start\r"
+  - Key: btn_options
+    Value: "Options\r"
+  - Key: btn_exit
+    Value: "Exit\r"
+  - Key: lbl_main_menu
+    Value: "Main menu\r"
+  - Key: btn_lang
+    Value: "Language\r"
+  - Key: door1
+    Value: "You need a key!\r"
+  - Key: door2
+    Value: "Its on the level. Search!\r"
+  - Key: crabby_give_gem
+    Value: "Give me gem. I will show magic\r"
+  - Key: crabby_obtained_1
+    Value: "Aaaand miracle.....\r"
+  - Key: crabby_obtained_2
+    Value: "Now I have a gem and you dont, bye bye\r"
+  - Key: lbl_music
+    Value: "Music\r"
+  - Key: lbl_sfx
+    Value: SFX
+  - Key: btn_continue
+    Value: Continue

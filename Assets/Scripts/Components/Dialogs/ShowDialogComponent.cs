@@ -12,6 +12,8 @@ namespace Components.Dialogs
         [SerializeField] private DialogData _bound;
         [SerializeField] private DialogDef _external;
 
+        [SerializeField] private bool localize = true;
+        
         private DialogBoxController _dialogBox;
 
         public void Show()
@@ -19,7 +21,7 @@ namespace Components.Dialogs
             if (_dialogBox == null)
                 _dialogBox = FindObjectOfType<DialogBoxController>();
 
-            _dialogBox.ShowDialog(Data);
+            _dialogBox.ShowDialog(Data, localize);
         }
 
         public void Show(DialogDef def)

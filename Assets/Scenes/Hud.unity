@@ -431,6 +431,7 @@ MonoBehaviour:
   _text: {fileID: 697312303}
   _container: {fileID: 1834041769}
   _animator: {fileID: 465331579}
+  localize: 1
   _textSpeed: 0.09
   _typing: {fileID: 8300000, guid: 542437ed812c0ee4cbf24b4da1ddcf35, type: 3}
   _open: {fileID: 8300000, guid: 81a2b6c816575714fb5014ecc01808c0, type: 3}
@@ -658,6 +659,7 @@ GameObject:
   - component: {fileID: 722177130}
   - component: {fileID: 722177129}
   - component: {fileID: 722177131}
+  - component: {fileID: 722177132}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -779,6 +781,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &722177132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722177127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfebebe57fb54df3acc9b8165869d202, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: btn_continue
+  _capitalize: 0
 --- !u!1 &751616532
 GameObject:
   m_ObjectHideFlags: 0
