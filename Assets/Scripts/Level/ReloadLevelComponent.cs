@@ -6,17 +6,14 @@ namespace Level
 {
     public class ReloadLevelComponent : MonoBehaviour
     {
-        public void OnOutOfLevel()
-        {
-            DestroyCurrentSession();
-            var currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.name);
-        }
-
-        private void DestroyCurrentSession()
+        public void ReloadLevel()
         {
             var session = FindObjectOfType<GameSession>();
-            Destroy(session.gameObject);
+            session.LoadLastSave();
+            
+            var scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
         }
+        
     }
 }

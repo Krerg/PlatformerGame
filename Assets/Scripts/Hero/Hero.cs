@@ -1,10 +1,8 @@
-﻿using System;
-using Components;
+﻿using Components;
 using Components.ColliderCollision;
 using Components.Health;
 using Components.Lifecycle;
 using Model.Data;
-using PixelCrew;
 using PixelCrew.Components.Extensions;
 using PixelCrew.Creatures;
 using PixelCrew.Model;

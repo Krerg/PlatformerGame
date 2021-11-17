@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 3712569714173162337}
   - component: {fileID: 3712569714173162339}
   - component: {fileID: 3712569714173162336}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4352
   _collider: {fileID: 3712569714173162336}
   IsTouchingLayer: 0
 --- !u!70 &3712569714173162336
@@ -5271,6 +5271,7 @@ GameObject:
   - component: {fileID: 3712569715331749247}
   - component: {fileID: 1168928699}
   - component: {fileID: 3712569715099436999}
+  - component: {fileID: 440376498986767429}
   m_Layer: 13
   m_Name: Hero
   m_TagString: Player
@@ -5339,8 +5340,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1428891411
-  m_SortingLayer: 1
+  m_SortingLayerID: -2097953541
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: -6146700129834819302, guid: 0c032795445f9c645ac2a54ed9e084af,
     type: 3}
@@ -5399,9 +5400,9 @@ MonoBehaviour:
   _armed: {fileID: 9100000, guid: 09e34ab0773828a40bf4d55b68e9257a, type: 2}
   _disarmed: {fileID: 9100000, guid: f30a22e67b90da845a82ffc7b5efc41e, type: 2}
   _throwCooldown:
-    _value: 0
+    _value: 1
   _throwSpawner: {fileID: 7997977677943214953}
-  _heroHealth: {fileID: 0}
+  _heroHealth: {fileID: 3712569715331749235}
 --- !u!114 &3712569715331749236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5521,7 +5522,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3712569715331749226}
-        m_MethodName: OnNextItem
+        m_MethodName: OnThrow
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5531,8 +5532,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_ActionId: 42fc56e3-b2f9-47d8-aba5-3bcdcf6a120e
+    m_ActionName: Hero/Throw[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3712569715331749226}
+        m_MethodName: OnUseHealthPotion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 97450a22-4393-4878-a392-c0cea2572395
+    m_ActionName: Hero/UseHealPotion[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3712569715331749226}
+        m_MethodName: OnUseHealthPotion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 97450a22-4393-4878-a392-c0cea2572395
+    m_ActionName: Hero/UseHealPotion[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls: []
     m_ActionId: 129f59ba-6237-4b8a-b80e-b9e4144b4926
-    m_ActionName: Hero/UseHeal[/Keyboard/h]
+    m_ActionName: Hero/NextItem[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -5585,7 +5620,7 @@ Animator:
   m_GameObject: {fileID: 3712569715331749225}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f30a22e67b90da845a82ffc7b5efc41e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 09e34ab0773828a40bf4d55b68e9257a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5627,8 +5662,8 @@ MonoBehaviour:
   _onHealthEmpty:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnOutOfLevel
+      - m_Target: {fileID: 440376498986767429}
+        m_MethodName: ReloadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5666,7 +5701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _joint: {fileID: 3712569715331749247}
   _lineRenderer: {fileID: 3712569715331749244}
-  _distance: 4
+  _distance: 3
   _rayCastMask:
     serializedVersion: 2
     m_Bits: 256
@@ -5801,8 +5836,8 @@ SpringJoint2D:
   m_ConnectedAnchor: {x: 7.8718314, y: -0.30000007}
   m_AutoConfigureDistance: 1
   m_Distance: 1.2621803
-  m_DampingRatio: 0.5
-  m_Frequency: 2
+  m_DampingRatio: 1
+  m_Frequency: 1
 --- !u!114 &1168928699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5848,6 +5883,18 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 81e74a1f632f4a548afb3f305891c5b4, type: 3}
   - _id: Hurt
     _clip: {fileID: 8300000, guid: 2a1bbffed33c1bf49b877abb0153e5ce, type: 3}
+--- !u!114 &440376498986767429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712569715331749225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1bd110deee3504ea3342054c4bc536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3712569715393018431
 GameObject:
   m_ObjectHideFlags: 0
