@@ -3198,8 +3198,14 @@ MonoBehaviour:
         Value: 3
       - Id: Sword
         Value: 12
+      - Id: Coin
+        Value: 12
     Hp:
       _value: 5
+    Perks:
+      _used:
+        _value: 
+      _unlocked: []
   _defaultCheckpoint: level1-checkpoint1
 --- !u!4 &467672340
 Transform:

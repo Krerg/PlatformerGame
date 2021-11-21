@@ -37,6 +37,12 @@ MonoBehaviour:
   - Key: lbl_music
     Value: "Music\r"
   - Key: lbl_sfx
-    Value: SFX
+    Value: "SFX\r"
   - Key: btn_continue
-    Value: Continue
+    Value: "Continue\r"
+  - Key: btn_buy
+    Value: "BUY\r"
+  - Key: btn_use
+    Value: "USE\r"
+  - Key: lbl_price
+    Value: 'PRICE:'

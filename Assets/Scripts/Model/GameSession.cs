@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Level;
 using Model.Data;
+using PixelCrew.Model.Models;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,7 @@ namespace PixelCrew.Model
         public PlayerData Data => _data;
         private PlayerData _save;
         public QuickInventoryModel QuickInventory { get; private set; }
+        public PerksModel PerksModel { get; private set; }
 
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
@@ -66,7 +68,9 @@ namespace PixelCrew.Model
         {
             QuickInventory = new QuickInventoryModel(Data);
             _trash.Retain(QuickInventory);
-            
+
+            PerksModel = new PerksModel(Data);
+            _trash.Retain(PerksModel);
         }
 
         private void LoadHud()
