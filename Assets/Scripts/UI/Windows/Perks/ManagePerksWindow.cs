@@ -27,7 +27,7 @@ namespace UI.Perks
             _dataGroup = new PredefinedDataGroup<PerkDef, PerkWidget>(_container);
             _session = FindObjectOfType<GameSession>();
 
-            _trash.Retain(_session.PerksModel.Subscribe(OnPerksChanged));
+            _trash.Retain(_session.PerksModel.SubscribeOnChange(OnPerksChanged));
 
             _trash.Retain(_buyButton.onClick.Subscribe(OnBuy));
             _trash.Retain(_useButton.onClick.Subscribe(OnUse));

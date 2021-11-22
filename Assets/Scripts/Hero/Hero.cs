@@ -104,7 +104,7 @@ namespace Hero
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!_isGrounded && _allowDoubleJump)
+            if (!_isGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported)
             {
                 _particles.Spawn("Jump");
                 _allowDoubleJump = false;

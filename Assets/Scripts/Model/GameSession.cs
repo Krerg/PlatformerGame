@@ -43,6 +43,11 @@ namespace PixelCrew.Model
             }
         }
 
+        private void Update()
+        {
+            PerksModel.UpdateModel();
+        }
+
         private void StartSession(string _defaultCheckpoint)
         {
             SetChecked(_defaultCheckpoint);

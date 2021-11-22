@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Components
 {
@@ -13,6 +14,17 @@ namespace Components
         public void Reset()
         {
             _timesUp = Time.time + _value;
+        }
+
+        public void UpdateValue(float value)
+        {
+            _value = value;
+            Reset();
+        }
+
+        public float GetTimeLeftInPercent()
+        {
+            return (_timesUp - Time.time) / _value;
         }
 
         public bool IsReady => _timesUp <= Time.time;

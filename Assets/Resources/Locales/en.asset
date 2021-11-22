@@ -45,4 +45,8 @@ MonoBehaviour:
   - Key: btn_use
     Value: "USE\r"
   - Key: lbl_price
-    Value: 'PRICE:'
+    Value: "PRICE:\r"
+  - Key: perk_shield_info
+    Value: "Shield. Invulnerability for 5 seconds!\r"
+  - Key: perk_djump_info
+    Value: Double jump. Press jump in the air and jump even higher!
