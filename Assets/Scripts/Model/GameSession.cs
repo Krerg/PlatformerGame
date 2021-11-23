@@ -21,6 +21,8 @@ namespace PixelCrew.Model
         private PlayerData _save;
         public QuickInventoryModel QuickInventory { get; private set; }
         public PerksModel PerksModel { get; private set; }
+        
+        public StatsModel StatsModel { get; private set; }
 
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
@@ -76,6 +78,9 @@ namespace PixelCrew.Model
 
             PerksModel = new PerksModel(Data);
             _trash.Retain(PerksModel);
+
+            StatsModel = new StatsModel(Data);
+            _trash.Retain(StatsModel);
         }
 
         private void LoadHud()

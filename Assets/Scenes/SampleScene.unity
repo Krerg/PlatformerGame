@@ -3406,6 +3406,8 @@ MonoBehaviour:
       _used:
         _value: 
       _unlocked: []
+    Levels:
+      _progress: []
   _defaultCheckpoint: level1-checkpoint1
 --- !u!4 &467672340
 Transform:
@@ -3512,7 +3514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4425983, y: -1.3810413, z: -10}
+  m_LocalPosition: {x: -3.9079018, y: -1.3980119, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
