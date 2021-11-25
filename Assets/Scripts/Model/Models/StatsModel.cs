@@ -41,6 +41,7 @@ namespace PixelCrew.Model.Models
             _data.Inventory.Remove(price.ItemId, price.Count);
             _data.Levels.LevelUp(id);
 
+            
             OnChanged?.Invoke();
             OnUpgraded?.Invoke(id);
         }
@@ -50,6 +51,17 @@ namespace PixelCrew.Model.Models
             return GetLevelDef(id, level).Value;
         }
 
+        private void PostProcessLevelup(StatId statId)
+        {
+            switch (statId)
+            {
+                case StatId.Hp:
+                    _data.Hp.Value = (int) GetValue(statId);
+                    break;
+                
+            }
+        }
+        
         public StatLevelDef GetLevelDef(StatId id, int level = -1)
         {
             if (level == -1) level = GetCurrentLevel(id);

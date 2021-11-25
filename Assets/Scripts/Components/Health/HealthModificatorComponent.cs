@@ -4,7 +4,7 @@ namespace Components.Health
 {
     public class HealthModificatorComponent : MonoBehaviour
     {
-        [SerializeField] private int _damage;
+        [SerializeField] protected int _damage;
         
         public void OnHealthChanged(GameObject target)
         {

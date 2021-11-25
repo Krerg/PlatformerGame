@@ -35,6 +35,8 @@ namespace Hero
         private GameSession _session;
 
         private const string SwordId = "Sword";
+
+        private HealthComponent _health;
         
         private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private int CoinsCount => _session.Data.Inventory.Count("Coin");
@@ -56,10 +58,25 @@ namespace Hero
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
-            GetComponent<HealthComponent>().SetHealth(_session.Data.Hp.Value);
+            _health = GetComponent<HealthComponent>();
+            _health.SetHealth(_session.Data.Hp.Value);
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
             
+            _session.StatsModel.OnUpgraded += OnHeroUpgraded;
+            
             UpdateHeroArmState();
+        }
+
+        private void OnHeroUpgraded(StatId statId)
+        {
+            switch (statId)
+            {
+                case StatId.Hp:
+                    var health = (int) _session.StatsModel.GetValue(statId);
+                    _session.Data.Hp.Value = health;
+                    _health.SetHealth(health);
+                    break;
+            }
         }
 
         private void OnDestroy()
@@ -73,6 +90,11 @@ namespace Hero
             {
                 UpdateHeroArmState();
             }
+        }
+
+        protected override float CalculateSpeed()
+        {
+            return _session.StatsModel.GetValue(StatId.Speed);
         }
 
         void OnCollisionEnter2D(Collision2D col)

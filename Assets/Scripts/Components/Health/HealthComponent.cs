@@ -25,10 +25,7 @@ namespace Components.Health
             if (_health <= 0) return;
             
             _health += damageValue;
-            if (_health > maxHealth)
-            {
-                _health = maxHealth;
-            }
+            
             _onChange?.Invoke(_health);
             if (damageValue > 0)
             {

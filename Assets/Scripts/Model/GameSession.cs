@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Level;
 using Model.Data;
+using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Models;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
@@ -81,6 +82,8 @@ namespace PixelCrew.Model
 
             StatsModel = new StatsModel(Data);
             _trash.Retain(StatsModel);
+
+            _data.Hp.Value = (int) StatsModel.GetValue(StatId.Hp);
         }
 
         private void LoadHud()

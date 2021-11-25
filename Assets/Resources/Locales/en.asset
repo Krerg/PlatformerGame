@@ -49,4 +49,10 @@ MonoBehaviour:
   - Key: perk_shield_info
     Value: "Shield. Invulnerability for 5 seconds!\r"
   - Key: perk_djump_info
-    Value: Double jump. Press jump in the air and jump even higher!
+    Value: "Double jump. Press jump in the air and jump even higher!\r"
+  - Key: Speed
+    Value: "Speed\r"
+  - Key: Health
+    Value: "Health\r"
+  - Key: RangeDamage
+    Value: Range

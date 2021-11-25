@@ -16,12 +16,12 @@ namespace UI.Hud
         {
             _session = FindObjectOfType<GameSession>();
             _session.Data.Hp.OnChanged += OnHealthChanged;
-            OnHealthChanged(_session.Data.Hp.Value, _session.Data.Hp.Value);
+            OnHealthChanged(_session.Data.Hp.Value, 0);
         }
 
         private void OnHealthChanged(int newvalue, int oldvalue)
         {
-            var maxHealth = DefsFacade.I.Player.MaxHealth;
+            var maxHealth = _session.StatsModel.GetValue(StatId.Hp);
             var value = (float) newvalue / maxHealth;
             _healthBar.SetProgress(value);
         }

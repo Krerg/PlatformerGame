@@ -56,7 +56,7 @@ namespace PixelCrew.Creatures
 
         protected virtual void FixedUpdate()
         {
-            var xVelocity = _direction.x * _speed;
+            var xVelocity = _direction.x * CalculateSpeed();
             var yVelocity = CalculateYVelocity();
             _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
 
@@ -90,6 +90,11 @@ namespace PixelCrew.Creatures
             return yVelocity;
         }
 
+        protected virtual float CalculateSpeed()
+        {
+            return _speed;
+        }
+        
         protected virtual float CalculateJumpVelocity(float yVelocity)
         {
             if (_isGrounded)
