@@ -9,29 +9,21 @@ namespace Hero.Perk
     {
         [SerializeField] private string _perkId;
 
-        private GameSession _gameSession;
+        protected GameSession _gameSession;
 
-        private readonly CompositeDisposable _trash = new CompositeDisposable();
-
-        private void Start()
+        protected virtual void Start()
         {
             _gameSession = FindObjectOfType<GameSession>();
-            _trash.Retain(_gameSession.PerksModel.SubscribeOnUse(id => CallOnEqualId(id, OnPerkStart)));
-            _trash.Retain(_gameSession.PerksModel.SubscribeOnCooldown(id => CallOnEqualId(id, OnPerkEnd)));
         }
 
-        private void CallOnEqualId(string perkId, Action call)
+        public void OnPerk()
         {
-            if (perkId == _perkId)
-                call?.Invoke();
+            if (_gameSession.PerksModel.Used == _perkId && _gameSession.PerksModel.IsPerkReady())
+            {
+                UsePerk();
+            }
         }
 
-        protected abstract void OnPerkStart();
-        protected abstract void OnPerkEnd();
-
-        private void OnDestroy()
-        {
-            _trash.Dispose();
-        }
+        public abstract void UsePerk();
     }
 }

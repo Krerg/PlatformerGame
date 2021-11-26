@@ -15,11 +15,10 @@ namespace Components
         {
             _timesUp = Time.time + _value;
         }
-
-        public void UpdateValue(float value)
+        public void Update(float newCooldownValue)
         {
-            _value = value;
-            Reset();
+            _value = newCooldownValue;
+            _timesUp = Time.time;
         }
 
         public float GetTimeLeftInPercent()

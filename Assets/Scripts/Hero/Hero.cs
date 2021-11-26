@@ -38,6 +38,8 @@ namespace Hero
 
         private HealthComponent _health;
         
+        private bool _useDash = false;
+        
         private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private int CoinsCount => _session.Data.Inventory.Count("Coin");
         private string SelectedId => _session.QuickInventory.SelectedItem.Id;
@@ -84,6 +86,11 @@ namespace Hero
             _session.Data.Inventory.OnChanged -= OnInventoryChanged;
         }
 
+        public void UseDash()
+        {
+            _useDash = true;
+        }
+        
         private void OnInventoryChanged(string id, int value)
         {
             if (id == SwordId)
@@ -94,6 +101,11 @@ namespace Hero
 
         protected override float CalculateSpeed()
         {
+            if (_useDash)
+            {
+                _useDash = false;
+                return 80;
+            }
             return _session.StatsModel.GetValue(StatId.Speed);
         }
 
@@ -126,10 +138,11 @@ namespace Hero
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!_isGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported)
+            if (!_isGrounded && _allowDoubleJump && _session.PerksModel.IsDoubleJumpSupported && _session.PerksModel.IsPerkReady())
             {
                 _particles.Spawn("Jump");
                 _allowDoubleJump = false;
+                _session.PerksModel.UpdatePerkCooldown();
                 DoJumpVfx();
                 return _jumpSpeed;
             }

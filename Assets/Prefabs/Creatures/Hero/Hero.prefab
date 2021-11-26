@@ -5273,6 +5273,7 @@ GameObject:
   - component: {fileID: 3712569715099436999}
   - component: {fileID: 440376498986767429}
   - component: {fileID: 2834559268527327920}
+  - component: {fileID: 6579189348840048659}
   m_Layer: 13
   m_Name: Hero
   m_TagString: Player
@@ -5580,6 +5581,36 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 129f59ba-6237-4b8a-b80e-b9e4144b4926
     m_ActionName: Hero/NextItem[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2834559268527327920}
+        m_MethodName: OnPerk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bfd58938-55a5-491e-a7a8-6fa16412fe9b
+    m_ActionName: Hero/UseShield[/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6579189348840048659}
+        m_MethodName: OnPerk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 689464c0-35a8-4ef3-9ddc-059c3a1d8e66
+    m_ActionName: Hero/Dash[/Keyboard/rightShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -5920,7 +5951,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _perkId: shield
+  _useDuration: 5
   _hero: {fileID: 3712569715331749225}
+--- !u!114 &6579189348840048659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712569715331749225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6cbea3c9094a0bada70b83c36819bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _perkId: dash
+  _hero: {fileID: 3712569715331749237}
 --- !u!1 &3712569715393018431
 GameObject:
   m_ObjectHideFlags: 0

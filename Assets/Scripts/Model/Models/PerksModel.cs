@@ -41,16 +41,23 @@ namespace PixelCrew.Model.Models
             {
                 return;
             }
-
             var cooldownValue = GetCooldownValue();
             if (cooldownValue <= 0)
             {
-                var tmpUsed = Used;
-                _data.Perks.Used.Value = null;
-                OnCooldown?.Invoke(tmpUsed);
+                OnCooldown?.Invoke(Used);
             }
         }
 
+        public bool IsPerkReady()
+        {
+            return _perkCooldown.IsReady;
+        }
+
+        public void UpdatePerkCooldown()
+        {
+            _perkCooldown.Reset();
+        }
+        
         public IDisposable SubscribeOnChange(Action call)
         {
             OnChanged += call;
@@ -71,6 +78,7 @@ namespace PixelCrew.Model.Models
 
         public string Used => _data.Perks.Used.Value;
         public bool IsSuperThrowSupported => _data.Perks.Used.Value == "super-throw";
+        public bool IsDashSupported => _data.Perks.Used.Value == "dash";
         public bool IsShieldSupported => _data.Perks.Used.Value == "shield";
         public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump";
 
@@ -96,7 +104,7 @@ namespace PixelCrew.Model.Models
         {
             _data.Perks.Used.Value = selected;
             var def = DefsFacade.I.Perks.Get(selected);
-            _perkCooldown.UpdateValue(def.Cooldown);
+            _perkCooldown.Update(def.Cooldown);
             OnUse?.Invoke(selected);
         }
 
