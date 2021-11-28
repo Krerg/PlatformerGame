@@ -55,4 +55,16 @@ MonoBehaviour:
   - Key: Health
     Value: "Health\r"
   - Key: RangeDamage
-    Value: Range
+    Value: "Range\r"
+  - Key: Sword
+    Value: "Sword\r"
+  - Key: PotionSmall
+    Value: "Potion sml\r"
+  - Key: Pearl
+    Value: "Pearl\r"
+  - Key: Gem
+    Value: "Gem\r"
+  - Key: btn_sell
+    Value: "Sell\r"
+  - Key: alert_msg
+    Value: You cannot sell last sword!

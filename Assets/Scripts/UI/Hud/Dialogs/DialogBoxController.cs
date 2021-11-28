@@ -45,7 +45,9 @@ namespace UI.Hud.Dialogs
             if (_typingCoroutine != null)
                 StopCoroutine(_typingCoroutine);
             _typingCoroutine = null;
-            _text.text = _data.Sentences[_currentSentence];
+            _text.text = localize
+                ? LocalizationManager.I.Localize(_data.Sentences[_currentSentence])
+                : _data.Sentences[_currentSentence];
         }
 
         public void OnContinue()

@@ -27,6 +27,11 @@ namespace UI.Localization
             _text.text = localeInfo.LocaleId.ToUpper();
         }
 
+        public void Update()
+        {
+            
+        }
+
         private void UpdateSelection()
         {
             var isSelected = LocalizationManager.I.LocaleKey == _data.LocaleId;

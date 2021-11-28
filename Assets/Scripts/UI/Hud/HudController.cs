@@ -3,6 +3,7 @@ using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
 using UI.Widgets;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI.Hud
 {
@@ -10,13 +11,17 @@ namespace UI.Hud
     {
         [SerializeField] private ProgressBarWidget _healthBar;
 
+        [SerializeField] private Text coinsAmount;
+        
         private GameSession _session;
         
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
             _session.Data.Hp.OnChanged += OnHealthChanged;
+            _session.Data.Inventory.OnChanged += OnInventoryChanged;
             OnHealthChanged(_session.Data.Hp.Value, 0);
+            OnInventoryChanged("Coin", _session.Data.Inventory.Count("Coin"));
         }
 
         private void OnHealthChanged(int newvalue, int oldvalue)
@@ -24,6 +29,14 @@ namespace UI.Hud
             var maxHealth = _session.StatsModel.GetValue(StatId.Hp);
             var value = (float) newvalue / maxHealth;
             _healthBar.SetProgress(value);
+        }
+
+        private void OnInventoryChanged(string id, int count)
+        {
+            if (id == "Coin")
+            {
+                coinsAmount.text = count.ToString();
+            }
         }
 
         private void OnDestroy()

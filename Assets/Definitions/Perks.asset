@@ -19,7 +19,7 @@ MonoBehaviour:
     _price:
       _itemId: Coin
       _count: 3
-    _cooldown: 5
+    _cooldown: 3
   - _id: shield
     _icon: {fileID: 21300000, guid: 499c8fce096a5bb45beac727243d71e0, type: 3}
     _info: perk_shield_info
@@ -28,9 +28,9 @@ MonoBehaviour:
       _count: 5
     _cooldown: 15
   - _id: dash
-    _icon: {fileID: 21300000, guid: 5806cb8c536c7489f8ce517bf1f54da1, type: 3}
+    _icon: {fileID: 21300000, guid: d6b95f7090cf2634d9dc4456fa951e27, type: 3}
     _info: dash_info
     _price:
       _itemId: Coin
       _count: 5
-    _cooldown: 20
+    _cooldown: 3

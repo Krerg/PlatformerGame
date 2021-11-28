@@ -104,7 +104,7 @@ namespace Hero
             if (_useDash)
             {
                 _useDash = false;
-                return 80;
+                return 120;
             }
             return _session.StatsModel.GetValue(StatId.Speed);
         }

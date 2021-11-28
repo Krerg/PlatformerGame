@@ -9,6 +9,7 @@ TagManager:
   - InvulnerableMob
   - SfxAudioSource
   - InvulnerablePlayer
+  - Window
   layers:
   - Default
   - TransparentFX

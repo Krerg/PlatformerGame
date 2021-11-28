@@ -33,6 +33,11 @@ namespace UI.PlayerStats
                 UpdateView();
         }
 
+        public void Update()
+        {
+            
+        }
+
         private void UpdateView()
         {
             var statsModel = _session.StatsModel;

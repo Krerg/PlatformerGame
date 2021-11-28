@@ -16,6 +16,14 @@ namespace UI.Widgets
             _container = container;
         }
 
+        public void UpdateItems()
+        {
+            for (var i = 0; i < CreatedItems.Count; i++)
+            {
+                CreatedItems[i].Update();
+            }
+        }
+        
         public virtual void SetData(IList<TDataType> data)
         {
             // create required items
@@ -43,5 +51,8 @@ namespace UI.Widgets
     public interface IItemRenderer<in TDataType>
     {
         void SetData(TDataType data, int index);
+
+        void Update();
+
     }
 }

@@ -30,6 +30,11 @@ namespace UI.Perks
                 UpdateView();
         }
 
+        public void Update()
+        {
+            
+        }
+
         private void UpdateView()
         {
             _icon.sprite = _data.Icon;
