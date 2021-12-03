@@ -2,6 +2,7 @@
 using Components.ColliderCollision;
 using Components.Health;
 using Components.Lifecycle;
+using Effects.Camera;
 using Model.Data;
 using PixelCrew.Components.Extensions;
 using PixelCrew.Creatures;
@@ -39,6 +40,8 @@ namespace Hero
         private HealthComponent _health;
         
         private bool _useDash = false;
+
+        private CameraShakeEffect _cameraShake;
         
         private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private int CoinsCount => _session.Data.Inventory.Count("Coin");
@@ -65,7 +68,7 @@ namespace Hero
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
             
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
-            
+            _cameraShake = FindObjectOfType<CameraShakeEffect>();
             UpdateHeroArmState();
         }
 
@@ -171,6 +174,7 @@ namespace Hero
         public override void TakeDamage()
         {
             base.TakeDamage();
+            _cameraShake.Shake();
             if (CoinsCount > 0)
             {
                 SpawnCoins();

@@ -10,6 +10,8 @@ public class HeroInputReader : MonoBehaviour
 
     [SerializeField] private GrapplingHook _grapplingHook;
 
+    [SerializeField] private GameObject _light;
+
     public void OnSaySomething(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -74,6 +76,14 @@ public class HeroInputReader : MonoBehaviour
         if (context.performed)
         {
             _hero.UseHealthPotion();
+        }
+    }
+
+    public void OnLight(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _light.SetActive(!_light.activeSelf);
         }
     }
     

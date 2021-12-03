@@ -42,6 +42,7 @@ namespace UI.Hud
         private void OnDestroy()
         {
             _session.Data.Hp.OnChanged -= OnHealthChanged;
+            _session.Data.Inventory.OnChanged -= OnInventoryChanged;
         }
     }
 }

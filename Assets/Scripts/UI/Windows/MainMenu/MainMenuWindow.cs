@@ -19,7 +19,8 @@ namespace UI.MainMenu
         {
             _closeAction = () =>
             {
-                SceneManager.LoadScene("SampleScene");
+                var loader = FindObjectOfType<LevelLoader.LevelLoader>();
+                loader.LoadLevel("Level1");
             };
             Close();
         }

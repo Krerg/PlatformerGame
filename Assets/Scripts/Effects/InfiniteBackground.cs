@@ -6,7 +6,7 @@ namespace Effects
 {
     public class InfiniteBackground: MonoBehaviour
     {
-        [SerializeField] private Camera _camera;
+        [SerializeField] private UnityEngine.Camera _camera;
         [SerializeField] private Transform _container;
 
         private Bounds _containerBounds;
