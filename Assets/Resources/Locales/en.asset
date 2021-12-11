@@ -67,4 +67,12 @@ MonoBehaviour:
   - Key: btn_sell
     Value: "Sell\r"
   - Key: alert_msg
-    Value: You cannot sell last sword!
+    Value: "You cannot sell last sword!\r"
+  - Key: patrick_enter1
+    Value: "Ha-ha-ha!\r"
+  - Key: patrick_enter2
+    Value: "Let's begin!\r"
+  - Key: patrick_die1
+    Value: "Wow\r"
+  - Key: patrick_die2
+    Value: I want sleep. Zzzzzz

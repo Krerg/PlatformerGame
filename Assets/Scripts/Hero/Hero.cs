@@ -174,7 +174,7 @@ namespace Hero
         public override void TakeDamage()
         {
             base.TakeDamage();
-            _cameraShake.Shake();
+            _cameraShake?.Shake();
             if (CoinsCount > 0)
             {
                 SpawnCoins();

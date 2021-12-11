@@ -25,7 +25,7 @@ namespace PixelCrew.Model.Definitions
 
         private static DefsFacade LoadDefinitions()
         {
-            return _instance = Resources.Load<DefsFacade>("DefsFacade");
+                return _instance = Resources.Load<DefsFacade>("DefsFacade");
         }
     }
 }

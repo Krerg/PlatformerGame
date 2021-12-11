@@ -4,6 +4,7 @@ using Model.Data;
 using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace UI.Hud.Dialogs
@@ -28,6 +29,7 @@ namespace UI.Hud.Dialogs
         private AudioSource _sfxSource;
 
         private Coroutine _typingCoroutine;
+        private UnityEvent _onComplete;
 
         private void Start()
         {
@@ -58,6 +60,7 @@ namespace UI.Hud.Dialogs
             if (isDialogComplete)
             {
                 HideDialogBox();
+                _onComplete?.Invoke();
             }
             else
             {
@@ -96,7 +99,7 @@ namespace UI.Hud.Dialogs
         {
         }
 
-        public void ShowDialog(DialogData data, bool localize)
+        public void ShowDialog(DialogData data, bool localize, UnityEvent onComplete)
         {
             this.localize = localize;
             _data = data;
@@ -106,6 +109,7 @@ namespace UI.Hud.Dialogs
             _container.SetActive(true);
             _sfxSource.PlayOneShot(_open);
             _animator.SetBool(IsOpen, true);
+            _onComplete = onComplete;
         }
     }
 }

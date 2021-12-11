@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6640403224796377062}
   - component: {fileID: 2184645272913224983}
   - component: {fileID: 3797627811158259556}
-  - component: {fileID: -7735767854840414790}
   - component: {fileID: 6510775227737183096}
+  - component: {fileID: 6993492754880379568}
   m_Layer: 9
   m_Name: SeashellHeroProjectile
   m_TagString: Untagged
@@ -178,20 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 7018462481432336252}
---- !u!114 &-7735767854840414790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7018462481432336252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586e7b70b66347f59927a47ac7f77984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 2
-  _invertX: 0
 --- !u!114 &6510775227737183096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,3 +191,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 0
+--- !u!114 &6993492754880379568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018462481432336252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a08c919c1842d8a14e249b18518000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 4
+  _invertX: 0

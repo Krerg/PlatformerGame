@@ -1,4 +1,5 @@
 ﻿using System;
+using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,22 +8,21 @@ namespace Components.Health
     public class HealthComponent : MonoBehaviour
     {
         [SerializeField] private int _health;
+
+        public int Health => _health;
+
         [SerializeField] private UnityEvent _onHealUp;
-        [SerializeField] private UnityEvent _onDamageTaken;
-        [SerializeField] private UnityEvent _onHealthEmpty;
+        [SerializeField] public UnityEvent _onDamageTaken;
+        [SerializeField] public UnityEvent _onHealthEmpty;
+        [SerializeField] public HealthChangeEvent _onChange;
 
-        [SerializeField] private HealthChangeEvent _onChange;
+        private Lock _immune = new Lock();
 
-        private int maxHealth;
-        
-        private void Start()
-        {
-            maxHealth = _health;
-        }
+        public Lock Immune => _immune;
 
         public void ApplyHealthChange(int damageValue)
         {
-            if (_health <= 0) return;
+            if (_health <= 0 || _immune.IsLocked) return;
             
             _health += damageValue;
             

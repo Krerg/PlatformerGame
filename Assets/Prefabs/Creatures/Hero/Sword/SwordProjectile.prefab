@@ -59,11 +59,11 @@ GameObject:
   - component: {fileID: 2139008790932891281}
   - component: {fileID: 6198320186634370438}
   - component: {fileID: 8910690122422819334}
-  - component: {fileID: 8394869075535842743}
   - component: {fileID: 4210738551061184498}
   - component: {fileID: 234654150903032546}
   - component: {fileID: 9054665881347660040}
   - component: {fileID: -5212284926634065538}
+  - component: {fileID: 2847926550240550637}
   m_Layer: 9
   m_Name: SwordProjectile
   m_TagString: Untagged
@@ -211,20 +211,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.011254072}
   serializedVersion: 2
   m_Radius: 0.30124593
---- !u!114 &8394869075535842743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6818434974083666737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586e7b70b66347f59927a47ac7f77984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
-  _invertX: 0
 --- !u!114 &4210738551061184498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,3 +319,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 0
+--- !u!114 &2847926550240550637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6818434974083666737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a08c919c1842d8a14e249b18518000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
+  _invertX: 0

@@ -5274,6 +5274,7 @@ GameObject:
   - component: {fileID: 440376498986767429}
   - component: {fileID: 2834559268527327920}
   - component: {fileID: 6579189348840048659}
+  - component: {fileID: -9205089172865562634}
   m_Layer: 13
   m_Name: Hero
   m_TagString: Player
@@ -5984,6 +5985,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _perkId: dash
   _hero: {fileID: 3712569715331749237}
+--- !u!114 &-9205089172865562634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712569715331749225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc3d6c643e84abf9c61da5edcf7fd7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _immuneTime: 2
 --- !u!1 &3712569715393018431
 GameObject:
   m_ObjectHideFlags: 0
